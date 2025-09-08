@@ -1,0 +1,141 @@
+body
+{
+	padding:0px;
+	margin:0px;
+	font-family:Tahoma;
+}
+.banner_keret{
+	display: flex;
+	padding: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+.logo_keret{
+	width: 300px;
+}
+.logokep{
+	height: 60px;
+}
+.kereso_keret{
+	border: 1px solid lightgray;
+	border-radius: 8px;
+	display: flex;
+	width: 40%;
+	justify-content: space-between;
+	/*https://www.cssmatic.com/box-shadow*/
+	box-shadow: 0px 0px 7px 8px rgba(236,245,254,1);
+}
+.ikon_keret{
+	display: flex;
+	width:40%;
+	justify-content: end;
+}
+.ikon_doboz{
+	font-size:22px;
+	color:#777777;
+	margin-left: 25px;
+}
+.kereso_belso{
+	display: flex;
+	padding: 10px;
+	width:95%;
+}
+.kereso_ikon_doboz
+{
+	font-size:22px;
+	color:#cccccc;
+	margin-right: 10px;
+}
+.kereso_mezo{
+	width:90%;
+	border: none;
+	outline: none;
+	font-size: 18px;
+}
+.kereses_gomb
+{
+	background:#0094e7;
+	color:white;
+	font-size:18px;
+	border:none;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+}
+
+.fotartalom{
+	display: flex;
+	margin: 10px;
+	border-radius: 12px;
+	border-top: 8px solid #00275b;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	margin: 10px;
+	min-height: 700px;
+}
+.kategoriak_doboz{
+	width: 15%px;
+	min-height: 700px;
+	border-right: 1px solid #cccccc;
+}
+.termekek_doboz{
+	width: 85%;
+}
+.kategoria_item{
+	border-left: 3px solid transparent;
+	display: flex;
+	align-items: center;
+	padding: 8px;
+	cursor: pointer;
+}
+.kategoria_item:hover{
+	border-left: 3px solid #00275b;
+	background: -webkit-linear-gradient(left, rgba(162,219,247,1) 0%, rgba(246,247,247,1) 58%);
+
+}
+.kategoria_ikon{
+	height: 25px;
+}
+.kategoria_felirat{
+	margin-left: 10px;
+}
+.kategoria_item:hover .kategoria_felirat{
+	text-decoration: underline;
+}
+.kijelolt_kategoria_item{
+	background: -webkit-linear-gradient(left, rgba(162,219,247,1) 0%, rgba(246,247,247,1) 58%);
+}
+.kategoria_cim{
+	text-align: center;
+	
+}
+.termekek_lista{
+	display: flex;
+}
+.egy_termek_doboz{
+	margin-left: 15px;
+}
+.egy_termek_kep_doboz{
+	height:200px ;
+	text-align: center;
+}
+.egy_termek_ar{
+ margin-top: 15px;
+ margin-bottom: 15px;
+ color:red;
+ font-size: 20px;
+ text-align: center;
+}
+.egy_termek_kosar{
+	text-align: center;
+}
+
+@media (max-width:1000px)
+{
+
+}
+
+
+@media (max-width:800px) /*maximálisan 800px-ig érvényesül*/
+{
+
+}
