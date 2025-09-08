@@ -3,7 +3,11 @@ include("../connect.php");
 
 $valasz=[];
 $feltetel;
-if($_POST["kategoria"]==0){
+
+if(isset($_POST["kereso_szo"])){
+    $feltetel=" where termeknev like '%".$_POST["kereso_szo"]."%'";
+}
+else if($_POST["kategoria"]==0){
     // $vissza=$kapcsolat->query("select * from termekek where kiemelt='1'");
     $feltetel=" where kiemelt='1'";
 }

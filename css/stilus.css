@@ -54,6 +54,7 @@ body
 }
 .kereses_gomb
 {
+	cursor: pointer;
 	background:#0094e7;
 	color:white;
 	font-size:18px;

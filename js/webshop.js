@@ -1,6 +1,16 @@
 $(document).ready(function () {
     kategoriak_vissza();
     termekek_vissza(0);
+
+    $(".kereso_mezo").keydown(
+        function (e) {
+            if (e.keyCode == 13) {   //Enter
+                termekek_vissza(0, $(this).val());
+            }
+        });
+    $(".kereses_gomb").click(function(){
+        termekek_vissza(0, $(".kereso_mezo").val());
+    });
 });
 
 function kategoriak_vissza() {
@@ -29,14 +39,18 @@ function kategoriak_vissza() {
 function termekek_vissza(param, kereso_szo) {
     $(".termekek_doboz").empty();
 
-    if (param == 0) {
+    if (kereso_szo) {
+        $("<h2 class='kategoria_cim'>Keresett kifejezés: " + kereso_szo + "</h2>").appendTo($(".termekek_doboz"));
+        var aktkategoria = 0;        
+    }
+
+    else if (param == 0) {
         $("<h2 class='kategoria_cim'>Kiemelt termékek</h2>").appendTo($(".termekek_doboz"));
         var aktkategoria = 0;
     }
     else {
         $("<h2 class='kategoria_cim'>" + param.megnevezes + "</h2>").appendTo($(".termekek_doboz"));
         var aktkategoria = param.id;
-
     }
     var termek_lista_doboz = $("<div class='termekek_lista'></div>").appendTo($(".termekek_doboz"));
 
@@ -44,23 +58,23 @@ function termekek_vissza(param, kereso_szo) {
         url: "modulok/termekek_vissza.php",
         dataType: "json",
         type: "post",
-        data: { "kategoria": aktkategoria },
+        data: { "kategoria": aktkategoria, "kereso_szo":kereso_szo },
         success: function (valasz) {
             termekek_mutat(valasz);
         }
     });
 }
 
-function termekek_mutat(valasz){
-    $.get("templates/egy_termek_temp.php", function(visszatemp){
-        var tempobj=$().add(visszatemp);
+function termekek_mutat(valasz) {
+    $.get("templates/egy_termek_temp.php", function (visszatemp) {
+        var tempobj = $().add(visszatemp);
 
-        $.each(valasz, function(idx, item){
-            var uj_termek=tempobj.clone(true,true);
+        $.each(valasz, function (idx, item) {
+            var uj_termek = tempobj.clone(true, true);
 
-            uj_termek.find(".egy_termek_kep").attr("src","termek_kepek/"+item.kep);
+            uj_termek.find(".egy_termek_kep").attr("src", "termek_kepek/" + item.kep);
             uj_termek.find(".egy_termek_nev").html(item.termeknev);
-            uj_termek.find(".egy_termek_ar").html(item.kiir_ar+" Ft");
+            uj_termek.find(".egy_termek_ar").html(item.kiir_ar + " Ft");
 
             uj_termek.appendTo($(".termekek_lista"));
         });
